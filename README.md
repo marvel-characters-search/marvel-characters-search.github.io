@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 [![Build Status](https://travis-ci.org/LiaTsernant/interactive-marvel-characters.svg?branch=master)](https://travis-ci.org/LiaTsernant/interactive-marvel-characters)
+
+[![<CircleCI>](https://circleci.com/gh/LiaTsernant/interactive-marvel-characters.svg?style=shield)](https://app.circleci.com/pipelines/github/LiaTsernant/interactive-marvel-characters)
 ## Available Scripts
 
 In the project directory, you can run:
