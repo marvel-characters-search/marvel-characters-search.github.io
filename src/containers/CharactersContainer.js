@@ -2,7 +2,7 @@ import React from 'react';
 import { signUrl } from '../urlSigner';
 import CharacterCard from '../components/CharacterCard';
 import { Row, Col } from 'antd';
-const style = { padding: '8px 0' };
+const style = { padding: '8px 5px' };
 
 class CharactersContainer extends React.Component {
   state = {
