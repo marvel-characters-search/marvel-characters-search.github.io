@@ -1,5 +1,5 @@
 import React from 'react';
-import { AutoComplete, Input, Button, Tooltip } from 'antd';
+import { AutoComplete, Button } from 'antd';
 import debounce from 'lodash/debounce';
 import { SearchOutlined } from '@ant-design/icons';
 
@@ -29,14 +29,13 @@ class Search extends React.Component {
   };
 
   render() {
-    const { dataSource, value } = this.state;
     return (
       <>
         <AutoComplete
           size="large"
           dropdownMatchSelectWidth={252}
           style={{
-            width: "70%",
+            width: "100%",
             padding: "10px 0"
           }}
           dataSource={this.state.dataSource}
