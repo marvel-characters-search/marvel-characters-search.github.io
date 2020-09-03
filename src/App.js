@@ -6,7 +6,7 @@ import CharactersContainer from './containers/CharactersContainer';
 import Search from './components/Search';
 
 function App() {
-  const { Header, Content, Footer } = Layout;
+  const { Header, Content } = Layout;
   return (
     <Layout className="layout">
       <Header />
