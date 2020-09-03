@@ -33,9 +33,11 @@ class Search extends React.Component {
     return (
       <>
         <AutoComplete
+          size="large"
           dropdownMatchSelectWidth={252}
           style={{
-            width: "50%",
+            width: "70%",
+            padding: "10px 0"
           }}
           dataSource={this.state.dataSource}
           onSelect={this.handleSelect}
@@ -43,7 +45,7 @@ class Search extends React.Component {
           placeholder="Character's Name (ex. Spider-Man)"
         >
       </AutoComplete>
-      <Button type="primary" icon={<SearchOutlined />}>
+        <Button size="large" type="primary" icon={<SearchOutlined />}>
           Search
       </Button>
       </>
