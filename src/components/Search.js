@@ -1,39 +1,55 @@
 import React from 'react';
+import { AutoComplete, Input, Button, Tooltip } from 'antd';
+import debounce from 'lodash/debounce';
+import { SearchOutlined } from '@ant-design/icons';
+
 
 class Search extends React.Component {
   state = {
-    val: '',
-    autoCompteleOptions: [],
+    value: '',
+    dataSource: [],
   };
 
-  handleSelect = (e) => {
-    console.log('I am handleSelect');
-  };
+  handleSelect(value) {
+    console.log('onSelect', value);
+  }
 
-  handleSearch = (e) => {
-    console.log('I am handleSearch');
-  };
-
-  handleChange = (e) => {
-    console.log('I am handleChange');
+  //Sets options for autocomplete
+  handleSearch = searchText => {
+    if (searchText !== '') {
+      console.log(searchText)
+      this.setState({
+        dataSource: [searchText, searchText.repeat(2), searchText.repeat(3)],
+      });
+    } else {
+      this.setState({
+        dataSource: [],
+      });
+    }
   };
 
   render() {
+    const { dataSource, value } = this.state;
     return (
-      <AutoComplete
-        value={this.state.value}
-        options={this.state.autoCompteleOptions}
-        style={{
-          width: 200,
-        }}
-        onSelect={this.handleSelect}
-        onSearch={this.handleSearch}
-        onChange={this.handleChange}
-        placeholder="control mode"
-      />
-    )
+      <>
+        <AutoComplete
+          dropdownMatchSelectWidth={252}
+          style={{
+            width: "50%",
+          }}
+          dataSource={this.state.dataSource}
+          onSelect={this.handleSelect}
+          onSearch={debounce(this.handleSearch, 300)}
+          placeholder="Character's Name (ex. Spider-Man)"
+        >
+      </AutoComplete>
+      <Button type="primary" icon={<SearchOutlined />}>
+          Search
+      </Button>
+      </>
+    );
   }
-};
+}
 
 export default Search;
 
