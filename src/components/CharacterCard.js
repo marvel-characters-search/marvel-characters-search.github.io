@@ -7,8 +7,8 @@ function CharacterCard(props) {
   return (
     <Card
       hoverable
-      style={{ width: "90%" }}
-      cover={<img alt="example" src={`${props.character.thumbnail.path}/portrait_medium.${props.character.thumbnail.extension}`} />}
+      cover={<img alt="example"
+      src={`${props.character.thumbnail.path}/portrait_medium.${props.character.thumbnail.extension}`} />}
     >
       <Meta title={props.character.name} />
     </Card>
