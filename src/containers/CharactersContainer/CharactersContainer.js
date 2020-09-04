@@ -12,14 +12,11 @@ function CharactersContainer(props) {
   )}) : [];
     
   return (
-    <>
-      <h1>Container</h1>
-      <div style={{ overflow: "hidden" }}> {/* https://github.com/ant-design/ant-design/issues/10144 */}
+    <div style={{ overflow: "hidden" }}> {/* https://github.com/ant-design/ant-design/issues/10144 */}
         <Row gutter={16}>
           { characters }
         </Row>
-      </div>
-    </>
+    </div>
   )
 }
 
