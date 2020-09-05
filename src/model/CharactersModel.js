@@ -1,6 +1,7 @@
 import { signUrl } from '../urlSigner';
 
 class CharactersModel {
+  // Getting first 18 characters to render on the page
   static getPaginatedCharacters = () => {
     let url = signUrl(`http://gateway.marvel.com/v1/public/characters?limit=18`);
     return fetch(url)
@@ -13,7 +14,7 @@ class CharactersModel {
       return fetch(url)
         .then(res => res.json())
     }
-  }
+  };
 
   static getSelectedCharacter = (characterName) => {
     if (characterName) {
@@ -22,7 +23,7 @@ class CharactersModel {
       return fetch(url)
         .then(res => res.json())
     }
-  }
+  };
 }
 
 export default CharactersModel;
