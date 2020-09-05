@@ -6,6 +6,7 @@ function CharactersContainer(props) {
   let characters = (props.characters || []).map((character) => {
     return (
       <Col
+        onClick={() => props.renderSelectedCharacter(character.name)}
         xs={24} sm={12} md={8} lg={6} xl={4}
         key={character.id}
         style={{ padding: '8px 5px' }}

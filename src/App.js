@@ -49,12 +49,15 @@ class App extends React.Component {
     if (this.state.selectedCharacter !== '') {
       displayedContainer =
         <CharacterDetailContainer
-        renderPaginatedCharacters={this.renderPaginatedCharacters}
-        character={this.state.selectedCharacter}
-      />
+          renderPaginatedCharacters={this.renderPaginatedCharacters}
+          character={this.state.selectedCharacter}
+        />
     } else {
       displayedContainer =
-        <CharactersContainer characters={this.state.characters} />
+        <CharactersContainer
+          characters={this.state.characters}
+          renderSelectedCharacter={this.renderSelectedCharacter}
+        />
     }
 
     return (
@@ -66,7 +69,7 @@ class App extends React.Component {
         </Header>
         <Content style={{ padding: '0 50px' }}>
           <Row justify="center">
-            <Col span={12}>
+            <Col span={24}>
               <Search
                 renderSelectedCharacter={this.renderSelectedCharacter}
                 setMultipleOptions={this.setMultipleOptions}
@@ -74,7 +77,7 @@ class App extends React.Component {
               />
             </Col>
             <Col span={24}>
-              { displayedContainer }
+              {displayedContainer}
             </Col>
           </Row>
         </Content>
