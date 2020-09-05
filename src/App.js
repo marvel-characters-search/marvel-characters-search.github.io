@@ -2,7 +2,7 @@ import React from 'react';
 import CharactersModel from './model/CharactersModel';
 import "antd/dist/antd.css";
 import './App.css';
-import { Layout, Row, Col, PageHeader } from 'antd';
+import { Layout, Row, Col } from 'antd';
 import CharactersContainer from './containers/CharactersContainer/CharactersContainer';
 import Search from './components/Search/Search';
 import CharacterDetailContainer from './containers/CharacterDetailContainer/CharacterDetailContainer';
@@ -44,21 +44,26 @@ class App extends React.Component {
 
   render() {
     const { Header, Content } = Layout;
-    let componentToRender;
+    let displayedContainer;
+
     if (this.state.selectedCharacter !== '') {
-      componentToRender =
+      displayedContainer =
         <CharacterDetailContainer
         renderPaginatedCharacters={this.renderPaginatedCharacters}
         character={this.state.selectedCharacter}
       />
     } else {
-      componentToRender =
+      displayedContainer =
         <CharactersContainer characters={this.state.characters} />
     }
 
     return (
       <Layout className="layout">
-        <Header />
+        <Header>
+          <div className="logo">
+            <h1 style={{ color: 'white' }}>Marvel Characters</h1>
+          </div>
+        </Header>
         <Content style={{ padding: '0 50px' }}>
           <Row justify="center">
             <Col span={12}>
@@ -69,7 +74,7 @@ class App extends React.Component {
               />
             </Col>
             <Col span={24}>
-              {componentToRender}
+              { displayedContainer }
             </Col>
           </Row>
         </Content>

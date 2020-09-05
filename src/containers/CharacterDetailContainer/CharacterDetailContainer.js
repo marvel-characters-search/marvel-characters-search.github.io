@@ -4,38 +4,33 @@ import { Col, Row, PageHeader } from 'antd';
 import './CharactersDetailContainer.css';
 import ActivityOfTheCharacter from '../../components/ActivityOfTheCharacter/ActivityOfTHeCharacter';
 
+let style = { padding: '10px' }
 
 function CharacterDetailContainer(props) {
-  const style = { padding: '40px' };
-
   if (props.character) {
     let character = props.character;
-    let description = character.description ? character.description : "No description for this character :("
 
     return (
       <>
         <PageHeader
           className="site-page-header"
           onBack={props.renderPaginatedCharacters}
-          // title="Back"
           subTitle="Main page"
         />
-        {/* Photo and description of the character */}
-        <Row style={style} gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-          <Col span={4} >
+        <Row gutter={16}>
+          <Col xs={24} sm={8} md={6} lg={6} xl={6} style={style}>
             <CharacterCard key={character.id} character={character}/>
           </Col>
-          <Col span={12} >
-            <p>{description}</p>
+          <Col xs={24} sm={8} md={8} lg={12} xl={12} style={style}>
+            <p>{character.description ? character.description : "No description for this character :("}</p>
           </Col>
         </Row>
 
-        {/* Displaying detailed info where we can see this character */}
-        <Row>
+        <Row type="flex" style={style}>
           <ActivityOfTheCharacter title={'Comics'} activity={character.comics.items} />
           <ActivityOfTheCharacter title={'Events'} activity={character.events.items} />
           <ActivityOfTheCharacter title={'Series'} activity={character.series.items} />
-          <ActivityOfTheCharacter title={'Comics'} activity={character.stories.items} />
+          <ActivityOfTheCharacter title={'Stories'} activity={character.stories.items} />
         </Row>
       </>
     )
