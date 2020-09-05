@@ -1,7 +1,17 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .ant-layout-header {
   background-color: #202020;
 }
 
 .layout {
   background-color: white;
+}
+
+h1 {
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
 }
