@@ -21,7 +21,13 @@
 * Displaying multiple options of characters if name of the character is not unique
 
 ## How to start:
-In addition to `localhost:3000`, you would need to add publicKey and and privateKey from the link.
+In addition to `localhost:3000`, you would need to provide publicKey and and privateKey to the link.
+* Clone this repo.
+* Run `npm i` to install all dependencies.
+* Run `npm start` to start React application.
+* Change paste public and private key to the link in browser:
 
 The full path should look like that: `http://localhost:3000/?publicKey=<...>&privateKey=<...>`
-Please, contact me if you don't have a link.
+Please, contact me if you don't have these details.
+
+* Refresh the page.
