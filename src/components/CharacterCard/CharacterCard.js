@@ -4,13 +4,17 @@ import { Card } from 'antd';
 const { Meta } = Card;
 
 function CharacterCard(props) {
+  let imgPath = props.character ? props.character.thumbnail.path : "";
+  let imgExtension = props.character ? props.character.thumbnail.extension : "";
+  let name = props.character ? props.character.name : "";
+
   return (
     <Card
       hoverable
-      cover={<img alt={props.character.name}
-      src={`${props.character.thumbnail.path}/portrait_medium.${props.character.thumbnail.extension}`} />}
+      cover={<img alt={name}
+        src={`${imgPath}/portrait_medium.${imgExtension}`} />}
     >
-      <Meta title={props.character.name} />
+      <Meta title={name} />
     </Card>
   )
 };
