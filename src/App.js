@@ -15,20 +15,18 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    this.renderPaginatedCharacters()
+    this.renderInitialCharacterSelection()
   };
 
-  // If needed to render multiple characters, sets these character to state and trigers render
-  setMultipleOptions = (characters) => {
+  showCharacterSelection = (characters) => {
     this.setState({
       selectedCharacter: '',
       characters: characters
     })
   };
 
-  // Sets a selected character to state and trigers render for displaying character's details 
-  renderSelectedCharacter = (characterName) => {
-    CharactersModel.getSelectedCharacter(characterName)
+  showSingleCharacter = (characterName) => {
+    CharactersModel.getCharacterByName(characterName)
       .then(res => {
         this.setState({
           selectedCharacter: res.data.results[0]
@@ -36,11 +34,11 @@ class App extends React.Component {
       })
   };
 
-  // Gets first N (currently: limit=18)characters from database and passes to a function to triger render
-  renderPaginatedCharacters = () => {
-    CharactersModel.getPaginatedCharacters()
+  // Render first N (currently: 18) characters
+  renderInitialCharacterSelection = () => {
+    CharactersModel.getInitalCharacterSet()
       .then(res => {
-        this.setMultipleOptions(res.data.results)
+        this.showCharacterSelection(res.data.results)
       })
       .catch(err => console.log(err))
   };
@@ -53,14 +51,14 @@ class App extends React.Component {
     if (this.state.selectedCharacter !== '') {
       displayedContainer =
         <CharacterDetailContainer
-          renderPaginatedCharacters={this.renderPaginatedCharacters}
+          renderInitialCharacterSelection={this.renderInitialCharacterSelection}
           character={this.state.selectedCharacter}
         />
     } else {
       displayedContainer =
         <CharactersContainer
           characters={this.state.characters}
-          renderSelectedCharacter={this.renderSelectedCharacter}
+          showSingleCharacter={this.showSingleCharacter}
         />
     }
 
@@ -78,9 +76,9 @@ class App extends React.Component {
           <Row justify='center'>
             <Col span={24}>
               <Search
-                renderSelectedCharacter={this.renderSelectedCharacter}
-                setMultipleOptions={this.setMultipleOptions}
-                renderPaginatedCharacters={this.renderPaginatedCharacters}
+                showSingleCharacter={this.showSingleCharacter}
+                showCharacterSelection={this.showCharacterSelection}
+                renderInitialCharacterSelection={this.renderInitialCharacterSelection}
               />
             </Col>
             <Col span={24}>

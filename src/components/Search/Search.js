@@ -12,25 +12,24 @@ class Search extends React.Component {
 
   // Passing information about selected character to a parent element
   handleSelect = (characterName) => {
-    this.props.renderSelectedCharacter(characterName);
+    this.props.showSingleCharacter(characterName);
   };
 
   // If we've got multiple options from database, 
   // passes these options to a parent element to render on the page 
-  handleMultipleOptions = (characters) => {
-    this.props.setMultipleOptions(characters);
+  showSearchResults = (characters) => {
+    this.props.showCharacterSelection(characters);
   };
 
   // On empty search, passes information to render a list of paginated characters
-  handleAllPaginatedCharacters() {
-    this.props.renderPaginatedCharacters()
+  handleEmptySearchResult() {
+    this.props.renderInitialCharacterSelection()
   };
 
-  //Sets options for autocomplete
   handleSearch = searchText => {
     if (searchText !== '') {
       // Making api call and sets autocomplete only when search input is not empty
-      CharactersModel.getCharactersByNameStart(searchText)
+      CharactersModel.getCharactersByNamePrefix(searchText)
         .then(res => {
           let options = res.data.results.map(characterOption => {
             return { value: characterOption.name }
@@ -49,17 +48,16 @@ class Search extends React.Component {
     };
   };
 
-  // Every 300ms getting results from database about desired character
-  getPotentialCharacter = (characterName) => {
-    if (characterName) {
-      CharactersModel.getCharactersByNameStart(characterName)
+  searchCharacterByPrefix = (namePrefix) => {
+    if (namePrefix) {
+      CharactersModel.getCharactersByNamePrefix(namePrefix)
         .then(res => {
           if (res.data.results.length === 1) {
             // if there is only one result - selects this character
             this.handleSelect(res.data.results[0].name)
           } else if (res.data.results.length > 1) {
             // if there are many options with the same name - renders options on the page
-            this.handleMultipleOptions(res.data.results);
+            this.showSearchResults(res.data.results);
           } else {
             this.setState({
               notFoundContent: 'Ouch..Looks like I don\'t have it...'
@@ -67,17 +65,12 @@ class Search extends React.Component {
           }
         })
     } else {
-      // if character's name wasn't provided - displays paginated characters
-      this.handleAllPaginatedCharacters();
+      this.handleEmptySearchResult();
     }
   };
 
-  handleEnterPress = (e) => {
-    this.getPotentialCharacter(e.target.value);
-  };
-
-  handleInputSearch = (inputText) => {
-    this.getPotentialCharacter(inputText);
+  handleEnter = (e) => {
+    this.searchCharacterByPrefix(e.target.value);
   };
 
   render() {
@@ -96,8 +89,8 @@ class Search extends React.Component {
         <Input.Search
           size='large'
           placeholder='Name of the Character (ex. Spider-Man)'
-          onPressEnter={this.handleEnterPress}
-          onSearch={this.handleInputSearch}
+          onPressEnter={this.handleEnter}
+          onSearch={this.searchCharacterByPrefix}
         />
       </AutoComplete>
     );

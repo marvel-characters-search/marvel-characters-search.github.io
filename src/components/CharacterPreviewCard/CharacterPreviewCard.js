@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card } from 'antd';
 
-function CharacterCard(props) {
+function CharacterPreviewCard(props) {
   const { Meta } = Card;
   let imgPath = props.character ? props.character.thumbnail.path : '';
   let imgExtension = props.character ? props.character.thumbnail.extension : '';
@@ -11,11 +11,11 @@ function CharacterCard(props) {
     <Card
       hoverable
       cover={<img alt={name}
-      src={`${imgPath}/portrait_medium.${imgExtension}`} />}
+        src={`${imgPath}/portrait_medium.${imgExtension}`} />}
     >
       <Meta title={name} />
     </Card>
   )
 };
 
-export default CharacterCard;
+export default CharacterPreviewCard;

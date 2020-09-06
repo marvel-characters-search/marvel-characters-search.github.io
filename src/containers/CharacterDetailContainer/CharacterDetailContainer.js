@@ -1,8 +1,8 @@
 import React from 'react';
-import CharacterCard from '../../components/CharacterCard/CharacterCard';
+import CharacterPreviewCard from '../../components/CharacterPreviewCard/CharacterPreviewCard';
 import { Col, Row, PageHeader } from 'antd';
 import './CharactersDetailContainer.css';
-import ActivityOfTheCharacter from '../../components/ActivityOfTheCharacter/ActivityOfTHeCharacter';
+import CharacterDetail from '../../components/CharacterDetail/CharacterDetail';
 
 function CharacterDetailContainer(props) {
   let style = { padding: '10px' };
@@ -13,7 +13,7 @@ function CharacterDetailContainer(props) {
       <>
         <PageHeader
           className='site-page-header'
-          onBack={props.renderPaginatedCharacters}
+          onBack={props.renderInitialCharacterSelection}
           subTitle='Main page'
         />
         <Row gutter={16}>
@@ -21,7 +21,7 @@ function CharacterDetailContainer(props) {
           <Col xs={24} sm={8} md={6} lg={4} xl={4}
             style={style}
           >
-            <CharacterCard key={character.id} character={character}/>
+            <CharacterPreviewCard key={character.id} character={character} />
           </Col>
           <Col xs={24} sm={8} md={8} lg={12} xl={12}
             style={style}
@@ -32,10 +32,10 @@ function CharacterDetailContainer(props) {
 
         <Row type='flex' style={style}>
           {/* Row with info about comics/series/events/strories with this character */}
-          <ActivityOfTheCharacter title={'Comics'} activity={character.comics.items} />
-          <ActivityOfTheCharacter title={'Events'} activity={character.events.items} />
-          <ActivityOfTheCharacter title={'Series'} activity={character.series.items} />
-          <ActivityOfTheCharacter title={'Stories'} activity={character.stories.items} />
+          <CharacterDetail title={'Comics'} activity={character.comics.items} />
+          <CharacterDetail title={'Events'} activity={character.events.items} />
+          <CharacterDetail title={'Series'} activity={character.series.items} />
+          <CharacterDetail title={'Stories'} activity={character.stories.items} />
         </Row>
       </>
     )

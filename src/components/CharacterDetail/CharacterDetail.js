@@ -2,7 +2,7 @@ import React from 'react';
 import { Col } from 'antd';
 
 // Component displays title (comics/events/series/stories) and its content
-function ActivityOfTheCharacter(props) {
+function CharacterDetail(props) {
   let title = props.title ? props.title : '';
   let activitiesList = props.activity.map((activity, i) => {
     return <li key={i}>{activity.name}</li>
@@ -20,4 +20,4 @@ function ActivityOfTheCharacter(props) {
   )
 };
 
-export default ActivityOfTheCharacter;
+export default CharacterDetail;

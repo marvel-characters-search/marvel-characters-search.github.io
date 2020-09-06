@@ -1,22 +1,21 @@
 import { signUrl } from '../urlSigner';
 
 class CharactersModel {
-  // Getting first 18 characters to render on the page
-  static getPaginatedCharacters = () => {
+  static getInitalCharacterSet = () => {
     let url = signUrl(`https://gateway.marvel.com/v1/public/characters?limit=18`);
     return fetch(url)
       .then(res => res.json())
   };
 
-  static getCharactersByNameStart = (nameStart) => {
-    if (nameStart) {
-      let url = signUrl(`https://gateway.marvel.com/v1/public/characters?nameStartsWith=${nameStart}`);
+  static getCharactersByNamePrefix = (namePrefix) => {
+    if (namePrefix) {
+      let url = signUrl(`https://gateway.marvel.com/v1/public/characters?nameStartsWith=${namePrefix}`);
       return fetch(url)
         .then(res => res.json())
     }
   };
 
-  static getSelectedCharacter = (characterName) => {
+  static getCharacterByName = (characterName) => {
     if (characterName) {
       let nameForUrl = characterName.split(" ").join("%20");
       let url = signUrl(`https://gateway.marvel.com/v1/public/characters?name=${nameForUrl}`);
