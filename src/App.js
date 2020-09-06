@@ -1,6 +1,6 @@
 import React from 'react';
 import CharactersModel from './model/CharactersModel';
-import "antd/dist/antd.css";
+import 'antd/dist/antd.css';
 import './App.css';
 import { Layout, Row, Col, Typography } from 'antd';
 import CharactersContainer from './containers/CharactersContainer/CharactersContainer';
@@ -18,6 +18,7 @@ class App extends React.Component {
     this.renderPaginatedCharacters()
   };
 
+  // If needed to render multiple characters, sets these character to state and trigers render
   setMultipleOptions = (characters) => {
     this.setState({
       selectedCharacter: '',
@@ -25,6 +26,7 @@ class App extends React.Component {
     })
   };
 
+  // Sets a selected character to state and trigers render for displaying character's details 
   renderSelectedCharacter = (characterName) => {
     CharactersModel.getSelectedCharacter(characterName)
       .then(res => {
@@ -34,6 +36,7 @@ class App extends React.Component {
       })
   };
 
+  // Gets first N (currently: limit=18)characters from database and passes to a function to triger render
   renderPaginatedCharacters = () => {
     CharactersModel.getPaginatedCharacters()
       .then(res => {
@@ -62,17 +65,17 @@ class App extends React.Component {
     }
 
     return (
-      <Layout className="layout">
+      <Layout className='layout'>
         <Header>
-          <div className="logo">
+          <div className='logo'>
             <h1 style={{ color: 'white' }}>Marvel Characters</h1>
           </div>
         </Header>
         <Content style={{ padding: '0 50px' }}>
-          <Row span={24} align="center" style={{ padding: '20px 0' }}>
+          <Row span={24} align='center' style={{ padding: '20px 0' }}>
             <Title>Find your favorite Marvel Character</Title>
           </Row>
-          <Row justify="center">
+          <Row justify='center'>
             <Col span={24}>
               <Search
                 renderSelectedCharacter={this.renderSelectedCharacter}

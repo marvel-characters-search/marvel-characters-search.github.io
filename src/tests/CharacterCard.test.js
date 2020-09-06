@@ -2,7 +2,6 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import CharacterCard from '../components/CharacterCard/CharacterCard';
 
-
 // sidestep https://github.com/ant-design/ant-design/issues/24906
 Object.defineProperty(window, 'matchMedia', {
   writable: true,

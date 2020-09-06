@@ -24,6 +24,6 @@ class CharactersModel {
         .then(res => res.json())
     }
   };
-}
+};
 
 export default CharactersModel;

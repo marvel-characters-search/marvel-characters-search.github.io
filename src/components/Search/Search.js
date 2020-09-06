@@ -62,7 +62,7 @@ class Search extends React.Component {
             this.handleMultipleOptions(res.data.results);
           } else {
             this.setState({
-              notFoundContent: "Ouch..Looks like I don't have it..."
+              notFoundContent: 'Ouch..Looks like I don\'t have it...'
             })
           }
         })
@@ -83,20 +83,20 @@ class Search extends React.Component {
   render() {
     return (
       <AutoComplete
-        dropdownClassName="certain-category-search-dropdown"
+        dropdownClassName='certain-category-search-dropdown'
         dropdownMatchSelectWidth={500}
         options={this.state.options}
         onSelect={this.handleSelect}
         onSearch={debounce(this.handleSearch, 300)}
         style={{
-          width: "100%",
-          padding: "20px 0"
+          width: '100%',
+          padding: '20px 0'
         }}
         notFoundContent={this.state.notFoundContent}
       >
         <Input.Search
-          size="large"
-          placeholder="Name of the Character (ex. Spider-Man)"
+          size='large'
+          placeholder='Name of the Character (ex. Spider-Man)'
           onPressEnter={this.handleEnterPress}
           onSearch={this.handleInputSearch}
         />

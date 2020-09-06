@@ -2,9 +2,9 @@ import md5 from 'md5';
 
 export function singedUrlDeterministic(url, ts, privateKey, publicKey) {
   let hash = md5(ts + privateKey + publicKey);
-  let separator = "&"
-  if (url.indexOf("?") === -1) {
-    separator = "?"
+  let separator = '&'
+  if (url.indexOf('?') === -1) {
+    separator = '?'
   }
   let signedUrl = `${url}${separator}ts=${ts}&apikey=${publicKey}&hash=${hash}`;
 
