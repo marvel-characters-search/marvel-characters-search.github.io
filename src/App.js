@@ -2,7 +2,7 @@ import React from 'react';
 import CharactersModel from './model/CharactersModel';
 import "antd/dist/antd.css";
 import './App.css';
-import { Layout, Row, Col } from 'antd';
+import { Layout, Row, Col, Typography } from 'antd';
 import CharactersContainer from './containers/CharactersContainer/CharactersContainer';
 import Search from './components/Search/Search';
 import CharacterDetailContainer from './containers/CharacterDetailContainer/CharacterDetailContainer';
@@ -44,6 +44,7 @@ class App extends React.Component {
 
   render() {
     const { Header, Content } = Layout;
+    const { Title } = Typography;
     let displayedContainer;
 
     if (this.state.selectedCharacter !== '') {
@@ -68,6 +69,9 @@ class App extends React.Component {
           </div>
         </Header>
         <Content style={{ padding: '0 50px' }}>
+          <Row span={24} align="center" style={{ padding: '20px 0' }}>
+            <Title>Find your favorite Marvel Character</Title>
+          </Row>
           <Row justify="center">
             <Col span={24}>
               <Search
