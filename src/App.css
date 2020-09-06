@@ -2,14 +2,17 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
+/* Color of navbar */
 .ant-layout-header {
   background-color: #202020;
 }
 
+/* Reset of antd gray color of the <main> */
 .layout {
   background-color: white;
 }
 
+/* Text of the 'logo' */
 h1 {
   color: white;
   font-weight: 600;
