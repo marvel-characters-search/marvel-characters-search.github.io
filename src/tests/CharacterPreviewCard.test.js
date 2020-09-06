@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import CharacterCard from '../components/CharacterCard/CharacterCard';
+import CharacterPreviewCard from '../components/CharacterPreviewCard/CharacterPreviewCard';
 
 // sidestep https://github.com/ant-design/ant-design/issues/24906
 Object.defineProperty(window, 'matchMedia', {
@@ -26,7 +26,7 @@ test('Show name of the character', () => {
     }
   };
 
-  const { getByText } = render(<CharacterCard character={character} />);
+  const { getByText } = render(<CharacterPreviewCard character={character} />);
   const name = getByText(character.name);
   expect(name).toBeInTheDocument();
 });
