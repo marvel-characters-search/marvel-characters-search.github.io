@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import App from '../App';
+import CharacterCard from '../components/CharacterCard/CharacterCard';
+
 
 // sidestep https://github.com/ant-design/ant-design/issues/24906
 Object.defineProperty(window, 'matchMedia', {
@@ -17,9 +18,16 @@ Object.defineProperty(window, 'matchMedia', {
   })),
 });
 
-test('Show title', () => {
-  let pageTitle = 'Marvel Characters'
-  const { getByText } = render(<App />);
-  const title = getByText(pageTitle);
-  expect(title).toBeInTheDocument();
+test('Show name of the character', () => {
+  const character = {
+    name: 'Thor',
+    description: "Thor description",
+    thumbnail: {
+      path: 'https://imgPath...'
+    }
+  };
+
+  const { getByText } = render(<CharacterCard character={character} />);
+  const name = getByText(character.name);
+  expect(name).toBeInTheDocument();
 });
