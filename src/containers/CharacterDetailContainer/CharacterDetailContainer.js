@@ -18,7 +18,7 @@ function CharacterDetailContainer(props) {
         />
         <Row gutter={16}>
           {/* Row for image and description */}
-          <Col xs={24} sm={8} md={6} lg={6} xl={6}
+          <Col xs={24} sm={8} md={6} lg={4} xl={4}
             style={style}
           >
             <CharacterCard key={character.id} character={character}/>
