@@ -19,3 +19,9 @@
 * Mobile Friendly design(tested on Mobile Chrome/Firefox/Safari with screen sizes down to 4")
 * Debounced autocomplete for suggesting characters
 * Displaying multiple options of characters if name of the character is not unique
+
+## How to start:
+In addition to `localhost:3000`, you would need to add publicKey and and privateKey from the link.
+
+The full path should look like that: `http://localhost:3000/?publicKey=<...>&privateKey=<...>`
+Please, contact me if you don't have a link.
