@@ -5,7 +5,7 @@ import { Col } from 'antd';
 function ActivityOfTheCharacter(props) {
   let title = props.title ? props.title : '';
   let activitiesList = props.activity.map((activity, i) => {
-    return <li key={activity.id}>{activity.name}</li>
+    return <li key={i}>{activity.name}</li>
   });
 
   return (
