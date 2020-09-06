@@ -84,7 +84,6 @@ class Search extends React.Component {
     return (
       <AutoComplete
         dropdownClassName='certain-category-search-dropdown'
-        dropdownMatchSelectWidth={500}
         options={this.state.options}
         onSelect={this.handleSelect}
         onSearch={debounce(this.handleSearch, 300)}
