@@ -1,7 +1,5 @@
 [![Build Status](https://travis-ci.org/LiaTsernant/interactive-marvel-characters.svg?branch=master)](https://travis-ci.org/LiaTsernant/interactive-marvel-characters)
 
-[![<CircleCI>](https://circleci.com/gh/LiaTsernant/interactive-marvel-characters.svg?style=shield)](https://app.circleci.com/pipelines/github/LiaTsernant/interactive-marvel-characters)
-
 # Marvel Characters Search Engine
 ![Marvel Search](assets/marvel.png)
 
@@ -9,7 +7,7 @@
 * Framework: React
 * Data Source: Marvel API
 * UI Library: Ant Design
-* Hosted continuous integration service: Travis CI and Circle CI
+* Hosted continuous integration service: Travis CI
 * Testing framework: Jest
 
 ## Decisions Made:
