@@ -1,5 +1,4 @@
-# Marvel Characters Search Engine [![Build Status](https://travis-ci.org/LiaTsernant/interactive-marvel-characters.svg?branch=master)](https://travis-ci.org/LiaTsernant/interactive-marvel-characters)
-
+# Marvel Characters Search Engine
 ![Marvel Search](assets/marvel.png)
 
 ## Technologies Used: 
